@@ -12,5 +12,14 @@ export default {
 export const ReviewDefault = {
     args: {
         rating: 3.5,
+        reviewsCount: 4,
     },
 };
+
+export const SingleReview = {
+    args: {
+        rating: 3.5,
+        reviewsCount: 1,
+    },
+};
+
