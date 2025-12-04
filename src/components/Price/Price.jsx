@@ -1,34 +1,40 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import { formatPrice, calculateSavings } from "../../utils/priceUtils";
 
 const Price = ({ currency, originalPrice, discountedPrice }) => {
+    const hasDiscount = discountedPrice != null && discountedPrice < originalPrice;
+    const savings = calculateSavings(originalPrice, discountedPrice);
+
     return (
-        <div
-            className='flex flex-col gap-[0.2rem] items-start'>
+        <div className="flex flex-col gap-1 items-start">
             <span
-                className={`${discountedPrice ? "line-through text-light-gray text-[0.9rem]" : "text-dark-gray text-[1rem]"}`}>
-                {currency}{originalPrice?.toFixed(2)}
+                className={
+                    hasDiscount
+                        ? "line-through text-light-gray text-sm"
+                        : "text-dark-gray text-base font-semibold"
+                }
+            >
+                {currency}{formatPrice(originalPrice)}
             </span>
-            {
-                discountedPrice && <div className='flex flex-col gap-[0.2rem] items-start'>
-                    <span
-                        className='font-bold text-[1rem] text-primary-red'>
-                        Now {currency}{discountedPrice?.toFixed(2)}
+            {hasDiscount && (
+                <div className="flex flex-col gap-[0.2rem] items-start">
+                    <span className="font-bold text-base text-primary-red">
+                        Now {currency}{formatPrice(discountedPrice)}
                     </span>
-                    <span
-                        className='font-bold text-[0.8rem] text-primary-green'
-                    >
-                        Save {currency}{(originalPrice - discountedPrice).toFixed(2)}
+
+                    <span className="font-bold text-xs text-primary-green">
+                        Save {currency}{formatPrice(savings)}
                     </span>
                 </div>
-            }
+            )}
         </div>
-    )
-}
+    );
+};
 
 Price.propTypes = {
     currency: PropTypes.string.isRequired,
     originalPrice: PropTypes.number.isRequired,
-    discountedPrice: PropTypes.number
-}
+    discountedPrice: PropTypes.number,
+};
 
-export default Price
+export default Price;
