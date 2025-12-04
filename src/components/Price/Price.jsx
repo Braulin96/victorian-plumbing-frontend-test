@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+
 import { formatPrice, calculateSavings } from "../../utils/priceUtils";
 
 const Price = ({ currency, originalPrice, discountedPrice }) => {
