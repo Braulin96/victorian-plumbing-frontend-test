@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 
-import Asset from '../Asset/Asset'
+import Asset from '@components/Asset/Asset.jsx'
 
-import Arrow from '../../assets/arrow.svg'
+import Arrow from '@assets/arrow.svg'
 
 const Pagination = ({ page, setPage, totalPages }) => {
     return (

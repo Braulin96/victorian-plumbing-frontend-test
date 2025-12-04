@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 
-import Asset from '../Asset/Asset';
-import { roundedRating } from '../../utils/roundedRating';
+import Asset from '@components/Asset/Asset';
+import { roundedRating } from '@utils/roundedRating';
 
-import FilledStar from '../../assets/filledStar.svg'
-import EmptyStar from '../../assets/emptyStar.svg'
+import FilledStar from '@assets/filledStar.svg'
+import EmptyStar from '@assets/emptyStar.svg'
 
 const Review = ({ rating }) => {
     const arrayOf5 = Array(5).fill(null);

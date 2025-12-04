@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { formatPrice, calculateSavings } from "../../utils/priceUtils";
+import { formatPrice, calculateSavings } from "@utils/priceUtils";
 
 const Price = ({ currency, originalPrice, discountedPrice }) => {
     const hasDiscount = discountedPrice != null && discountedPrice < originalPrice;
