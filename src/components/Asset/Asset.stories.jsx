@@ -2,7 +2,6 @@ import { fn } from "storybook/test";
 
 import Asset from "./Asset";
 import viteLogo from "/vite.svg";
-
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
   title: "Example/Asset",
