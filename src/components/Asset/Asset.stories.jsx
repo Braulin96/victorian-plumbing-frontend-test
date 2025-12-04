@@ -34,7 +34,7 @@ export const IconButton = {
     image: viteLogo,
     ariaLabel: 'Vite Logo Button',
     onClick: () => alert('Vite logo button clicked!'),
-    customClasses: 'w-[100px] h-[100px] bg-red-200 p-5',
+    customClasses: 'w-[100px] h-[100px] bg-primary-green p-5',
 
   },
 };
