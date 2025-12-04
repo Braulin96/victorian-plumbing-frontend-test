@@ -14,12 +14,12 @@ const Asset = ({ image, alt, customClasses = "", variant = 'image', onClick, ari
           type="button"
           onClick={onClick}
           aria-label={ariaLabel || alt}
-          className={`p-0 border-0 bg-transparent cursor-pointer ${customClasses}`}
+          className={`p-0 border-0 bg-transparent cursor-pointer `}
         >
           <img
             src={image}
             alt={alt}
-            className={`w-full object-cover`}
+            className={`w-full object-cover ${customClasses}`}
             loading="lazy"
           />
         </button>
