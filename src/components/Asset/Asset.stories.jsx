@@ -2,6 +2,7 @@ import { fn } from "storybook/test";
 
 import Asset from "./Asset";
 import viteLogo from "/vite.svg";
+
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
   title: "Example/Asset",
@@ -21,8 +22,18 @@ export default {
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
+export const Image = {
   args: {
     image: viteLogo,
+  },
+};
+
+export const IconButton = {
+  args: {
+    variant: 'iconButton',
+    image: viteLogo,
+    ariaLabel: 'Vite Logo Button',
+    onClick: () => alert('Vite logo button clicked!'),
+    customClasses: '!size-[100px] !bg-red-200 !p-[20x]]',
   },
 };
