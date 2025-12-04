@@ -6,7 +6,9 @@ import Arrow from '../../assets/arrow.svg'
 
 const Pagination = ({ page, setPage, totalPages }) => {
     return (
-        <section>
+        <nav
+            aria-label="Pagination Navigation"
+            role='navigation'>
             <div className="flex items-center gap-[1rem] justify-center text-base">
                 <Asset
                     image={Arrow}
@@ -30,7 +32,7 @@ const Pagination = ({ page, setPage, totalPages }) => {
                     customClasses="size-5"
                 />
             </div>
-        </section>
+        </nav>
     )
 }
 
