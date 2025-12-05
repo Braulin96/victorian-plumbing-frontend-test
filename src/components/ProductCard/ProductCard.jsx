@@ -29,15 +29,16 @@ const ProductCard = ({
                 customClasses="w-full h-[220px] object-cover mb-[0.5rem] rounded-t-[8px]"
             />
 
-            <div className='p-[1rem]'>
+            <div className='p-[1rem] flex flex-col h-full'>
                 <Title productName={productName} />
-                <div className='flex justify-between gap-x-[4px]'>
+                <div className='flex gap-x-[4px] '>
                     {
                         reviewsCount > 0 && <Review rating={rating} reviewsCount={reviewsCount} />
                     }
-                    <Stock inStock={inStock} />
+                    <div className='ml-auto'> <Stock inStock={inStock} /> </div>
+
                 </div>
-                <div className='mt-[0.5rem]'>
+                <div className='mt-auto'>
                     <Price
                         currency={currency}
                         originalPrice={originalPrice}
