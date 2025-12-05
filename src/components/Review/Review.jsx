@@ -11,7 +11,7 @@ const Review = ({ rating, reviewsCount }) => {
     const normalizedRating = roundedRating(rating);
 
     return (
-        <div role='img' aria-label={`Rating: ${rating} out of 5`} className='flex gap-[0.3rem] items-center'>
+        <div role='img' aria-label={`Rating: ${rating} out of 5`} className='flex gap-[0.3rem] items-center flex-wrap'>
             {arrayOf5.map((_, index) => (
                 <Asset
                     key={index}
