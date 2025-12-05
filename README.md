@@ -19,17 +19,6 @@ A high-performance e-commerce product listing application built with React, Vite
 - **Vite 7.2.4** - Lightning-fast build tool
 - **Axios** - HTTP client for API requests
 
-### Styling
-- **Tailwind CSS 3.4.18** - Utility-first CSS framework
-- **PostCSS** - CSS processing
-
-### Development Tools
-- **Storybook 10.1.4** - Component development environment
-- **ESLint** - Code linting
-- **Vitest** - Unit testing framework
-- **Playwright** - Browser automation for testing
-
-
 ## 📦 Installation
 
 ### Prerequisites
