@@ -1,11 +1,14 @@
-import ProductBlock from "@components/ProductBlock/ProductBlock"
+import { Suspense, lazy } from "react"
+
+const ProductBlock = lazy(() => import("@components/ProductBlock/ProductBlock"))
 
 function App() {
-
   return (
-    <div className='p-[20px] bg-white '>
-      <ProductBlock />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className='p-[20px] bg-white '>
+        <ProductBlock />
+      </div>
+    </Suspense>
   )
 }
 

@@ -66,19 +66,16 @@ const ProductBlock = () => {
     return (
         <div className='max-w-7xl mx-auto px-4 py-8 w-full h-full'>
 
-
             {error && (
                 <div className='flex justify-center'>
                     <ErrorMessage error={error} />
                 </div>
             )}
-
             {loading && (
                 <div className='flex justify-center items-center min-h-screen bg-white/50 z-10 absolute inset-0'>
                     <LoadingSpinner />
                 </div>
             )}
-
             {!loading && !error && products.length > 0 && (
                 <>
                     <div className='flex justify-end mb-[24px]'>
