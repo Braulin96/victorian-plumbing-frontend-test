@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
-import { selectorOptions } from '../../data/selectorOptions';
+
+import { selectorOptions } from '@data/selectorOptions';
 
 const Selector = ({ onChange, value }) => {
     return (
         <div className="flex items-center gap-2">
-            <span className="text-dark-gray text-sm font-medium">
+            <label className="text-dark-gray text-sm font-medium">
                 Sort by:
-            </span>
+            </label>
             <select
                 name="sortOrder"
                 className="bg-white border border-light-gray px-2 py-2 text-sm 

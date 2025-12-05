@@ -7,6 +7,8 @@ import Pagination from '@components/Pagination/Pagination'
 import LoadingSpinner from '@components/LoadingSpinner/LoadingSpinner'
 import ErrorMessage from '@components/ErrorMessage/ErrorMessage'
 
+import { mapProductToCard } from "@utils/helper";
+
 const API_URL =
     "https://spanishinquisition.victorianplumbing.co.uk/interviews/listings?apikey=yj2bV48J40KsBpIMLvrZZ1j1KwxN4u3A83H8IBvI";
 
@@ -31,12 +33,11 @@ const ProductBlock = () => {
                 sort: sort,
             });
 
-            setProducts(response.data.products);
-            console.log('Fetched products data:', response.data.products);
+            setProducts(response.data.products || []);
             setPagination(response.data.pagination);
         } catch (err) {
             console.error(err);
-            setError("Failed to fetch products. Please try again later.");
+            setError("Oops! We couldn't load the products right now. Please refresh the page or try again in a moment.");
         } finally {
             setLoading(false);
         }
@@ -53,44 +54,12 @@ const ProductBlock = () => {
 
     const totalPages = pagination ? Math.ceil(pagination.total / pagination.size) : 0;
 
-    // Map API data to ProductCard props
-    const mapProductToCard = (product) => {
-        const isInStock = product.stockStatus?.status === 'G';
-        const isOnSale = product.price?.isOnPromotion;
-
-        // Currency symbol considering possible GPB, EUR, USD:
-        const currencySymbol = product.price?.currencyCode === 'GBP' ? '£' :
-            product.price?.currencyCode === 'EUR' ? '€' :
-                product.price?.currencyCode === 'USD' ? '$' : '£';
-
-        const hasWasPrice = product.price?.wasPriceIncTax
-        const hasNowPrice = product.price?.priceIncTax
-
-        return {
-            image: product.image?.url || '',
-            alt: product.image?.attributes?.imageAltText || product.productName,
-            productName: product.productName,
-            rating: product.averageRating || 0,
-            reviewsCount: product.reviewsCount || 0,
-            inStock: isInStock,
-            currency: currencySymbol,
-            originalPrice: isOnSale ? hasWasPrice : hasNowPrice,
-            discountedPrice: isOnSale ? hasNowPrice : null,
-            slug: product.slug || '',
-        };
-    };
-
     return (
         <div className='max-w-7xl mx-auto px-4 py-8 w-full h-full'>
-            <div className='flex justify-end mb-[24px]'>
-                <Selector
-                    value={sort}
-                    onChange={handleSortChange}
-                    id="product-sort"
-                />
-            </div>
+
+
             {error && (
-                <div className='mb-6'>
+                <div className='flex justify-center'>
                     <ErrorMessage error={error} />
                 </div>
             )}
@@ -103,6 +72,13 @@ const ProductBlock = () => {
 
             {!loading && !error && products.length > 0 && (
                 <>
+                    <div className='flex justify-end mb-[24px]'>
+                        <Selector
+                            value={sort}
+                            onChange={handleSortChange}
+                            id="product-sort"
+                        />
+                    </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
                         {products.map((product) => (
                             <ProductCard
@@ -126,13 +102,11 @@ const ProductBlock = () => {
 
             {!loading && !error && products.length === 0 && (
                 <div className='text-center py-12'>
-                    <p className='text-dark-gray text-[1rem] text-lg'>No products found.</p>
+                    <p className='text-dark-gray text-[1rem]'>No products found.</p>
                 </div>
             )}
         </div>
     )
 }
-
-ProductBlock.propTypes = {}
 
 export default ProductBlock
