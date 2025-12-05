@@ -46,7 +46,7 @@ const ProductCard = ({
                     />
                 </div>
                 <div className='mt-[1.5rem] flex justify-center'>
-                    <Link href={slug} />
+                    <Link slug={slug} />
                 </div>
             </div>
         </div>

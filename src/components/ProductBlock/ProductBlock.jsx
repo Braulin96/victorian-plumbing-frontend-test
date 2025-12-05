@@ -76,6 +76,7 @@ const ProductBlock = () => {
             currency: currencySymbol,
             originalPrice: isOnSale ? hasWasPrice : hasNowPrice,
             discountedPrice: isOnSale ? hasNowPrice : null,
+            slug: product.slug || '',
         };
     };
 
