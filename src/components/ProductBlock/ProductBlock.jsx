@@ -80,8 +80,9 @@ const ProductBlock = () => {
                         />
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-                        {products.map((product) => (
+                        {products.map((product, index) => (
                             <ProductCard
+                                animationDelay={index * 0.2}
                                 key={product.id}
                                 {...mapProductToCard(product)}
                             />
