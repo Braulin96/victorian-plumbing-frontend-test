@@ -26,7 +26,7 @@ const ProductCard = ({
             <Asset
                 alt={alt}
                 image={image}
-                customClasses="w-full h-[220px] object-cover mb-[0.5rem] rounded-t-[8px]"
+                customClasses="w-full object-cover mb-[0.5rem] rounded-t-[8px]"
             />
 
             <div className='p-[1rem] flex flex-col h-full'>

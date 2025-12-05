@@ -96,7 +96,7 @@ const ProductBlock = () => {
             )}
 
             {loading && (
-                <div className='flex justify-center items-center min-h-screen'>
+                <div className='flex justify-center items-center min-h-screen bg-white/50 z-10 absolute inset-0'>
                     <LoadingSpinner />
                 </div>
             )}
