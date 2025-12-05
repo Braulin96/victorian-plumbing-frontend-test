@@ -15,7 +15,7 @@ const API_URL =
 const ProductBlock = () => {
     const [products, setProducts] = useState([]);
     const [pagination, setPagination] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [page, setPage] = useState(0);
     const [sort, setSort] = useState(1);
@@ -80,9 +80,8 @@ const ProductBlock = () => {
                         />
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-                        {products.map((product, index) => (
+                        {products.map((product) => (
                             <ProductCard
-                                animationDelay={index * 0.2}
                                 key={product.id}
                                 {...mapProductToCard(product)}
                             />

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import { motion } from 'framer-motion'
 
 import Asset from '@components/Asset/Asset'
 import Title from '@components/Title/Title'
@@ -20,12 +19,9 @@ const ProductCard = ({
     originalPrice,
     discountedPrice,
     slug,
-    animationDelay = 0
 }) => {
     return (
-        <motion.div
-            initial={{ opacity: 0, }}
-            animate={{ opacity: 1, transition: { duration: 0.7, delay: animationDelay }, }}
+        <div
             className='border border-light-gray/30 rounded-[8px] flex flex-col relative shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 bg-white'
         >
             <Asset
@@ -54,7 +50,7 @@ const ProductCard = ({
                     <Link slug={slug} />
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 
@@ -69,7 +65,6 @@ ProductCard.propTypes = {
     originalPrice: PropTypes.number.isRequired,
     discountedPrice: PropTypes.number,
     slug: PropTypes.string.isRequired,
-    animationDelay: PropTypes.number
 }
 
 export default ProductCard
