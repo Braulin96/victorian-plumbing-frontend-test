@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import axios from "axios";
 
 import ProductCard from '@components/ProductCard/ProductCard'
@@ -47,12 +47,21 @@ const ProductBlock = () => {
         fetchProducts();
     }, [page, sort]);
 
-    const handleSortChange = (e) => {
+    const handleSortChange = useCallback((e) => {
         setSort(Number(e.target.value));
         setPage(0);
-    };
+    }, []);
+
 
     const totalPages = pagination ? Math.ceil(pagination.total / pagination.size) : 0;
+
+    const mappedProducts = useMemo(() =>
+        products.map(product => ({
+            id: product.id,
+            ...mapProductToCard(product)
+        })),
+        [products]
+    );
 
     return (
         <div className='max-w-7xl mx-auto px-4 py-8 w-full h-full'>
@@ -80,10 +89,10 @@ const ProductBlock = () => {
                         />
                     </div>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-                        {products.map((product) => (
+                        {mappedProducts.map((product) => (
                             <ProductCard
                                 key={product.id}
-                                {...mapProductToCard(product)}
+                                {...product}
                             />
                         ))}
                     </div>

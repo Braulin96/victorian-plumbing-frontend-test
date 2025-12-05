@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import PropTypes from 'prop-types'
 
 import Asset from '@components/Asset/Asset'
@@ -8,7 +9,7 @@ import Price from '@components/Price/Price'
 import Link from '@components/Link/Link'
 
 
-const ProductCard = ({
+const ProductCard = memo(({
     image,
     alt,
     productName,
@@ -52,7 +53,7 @@ const ProductCard = ({
             </div>
         </div>
     )
-}
+})
 
 ProductCard.propTypes = {
     image: PropTypes.string.isRequired,

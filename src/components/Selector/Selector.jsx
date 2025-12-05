@@ -1,8 +1,10 @@
+import { memo } from 'react';
+
 import PropTypes from 'prop-types'
 
 import { selectorOptions } from '@data/selectorOptions';
 
-const Selector = ({ onChange, value }) => {
+const Selector = memo(({ onChange, value }) => {
     return (
         <div className="flex items-center gap-2">
             <label className="text-dark-gray text-sm font-medium">
@@ -25,7 +27,7 @@ const Selector = ({ onChange, value }) => {
             </select>
         </div>
     )
-}
+})
 
 Selector.propTypes = {
     onChange: PropTypes.func.isRequired,
