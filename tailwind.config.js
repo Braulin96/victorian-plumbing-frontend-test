@@ -8,7 +8,7 @@ export default {
         "primary-red": "#b91c1c",
         white: "#ffffff",
         "light-gray": "#808080",
-        "dark-gray": "#fafafa",
+        "dark-gray": "#262626",
       },
     },
   },

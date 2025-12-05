@@ -15,7 +15,7 @@ export default {
 
 export const LinkDefault = {
     args: {
-        href: "arezzo-btw-close-coupled-toilet-with-soft-close-seat",
+        slug: "arezzo-btw-close-coupled-toilet-with-soft-close-seat",
         text: "View product",
     },
 };

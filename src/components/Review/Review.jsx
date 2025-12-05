@@ -19,7 +19,7 @@ const Review = ({ rating, reviewsCount }) => {
                     customClasses='size-[14px]'
                 />
             ))}
-            <span className='text-[0.9rem]'>
+            <span className='text-[0.9rem] text-light-gray'>
                 ({reviewsCount}{" "}
                 {reviewsCount === 1 ? "review" : "reviews"})
             </span>
