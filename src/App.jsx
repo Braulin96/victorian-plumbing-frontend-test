@@ -1,14 +1,13 @@
-import { Suspense, lazy } from "react"
+import ProductBlock from "@components/ProductBlock/ProductBlock"
 
-const ProductBlock = lazy(() => import("@components/ProductBlock/ProductBlock"))
+// TODO: In production, use lazy loading with Suspense for better performance:
+// const ProductBlock = lazy(() => import('@components/ProductBlock/ProductBlock'))
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <div className='p-[20px] bg-white '>
-        <ProductBlock />
-      </div>
-    </Suspense>
+    <div className='p-[20px] bg-white '>
+      <ProductBlock />
+    </div>
   )
 }
 
